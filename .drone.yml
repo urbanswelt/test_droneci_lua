@@ -2,8 +2,8 @@ pipeline:
   lint:
     image: akorn/luarocks:${TAG}
     commands:
-      - apt-get update && apt-get upgrade -y
-      - apt-get install unzip -y
+      - apk update
+      - apk add unzip
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
