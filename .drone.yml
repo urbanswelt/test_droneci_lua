@@ -5,7 +5,7 @@ pipeline:
       - apk update
       - apk add unzip
 #      - apk add lua5.1-dev
-#      - apk add gcc
+      - apk add gcc
 #      - apk add lua5.1-filesystem
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
