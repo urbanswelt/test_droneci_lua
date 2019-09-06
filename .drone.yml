@@ -4,6 +4,7 @@ pipeline:
     commands:
       - apk update
       - apk add unzip
+      - apk add lfs
       - apk add gcc
       - luarocks install luafilesystem
       - luarocks install luacheck
