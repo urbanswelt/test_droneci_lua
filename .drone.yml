@@ -7,7 +7,7 @@ pipeline:
       - apk add lua5.1-dev
       - apk add gcc
       - apk add lua5.1-filesystem
-      - apk add luacheck
+      - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
     image: akorn/luarocks:${TAG}
