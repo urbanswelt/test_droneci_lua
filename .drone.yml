@@ -4,7 +4,7 @@ pipeline:
     commands:
       - apk update
       - apk add unzip
-      - apk add luafilesystem
+      - luarocks install luafilesystem
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
