@@ -4,7 +4,7 @@ pipeline:
     commands:
       - apk update
       - apk add unzip
-      - luarocks install liblua5.1-dev
+      - luarocks install liblua5.1
       - apk add gcc
       - luarocks install luafilesystem
       - luarocks install luacheck
