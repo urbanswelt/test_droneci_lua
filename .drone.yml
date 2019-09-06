@@ -4,7 +4,7 @@ pipeline:
     commands:
       - apk update
       - apk add unzip
-      - apk add -base
+      - apk add build-base
 #      - apk add lua5.1-dev
 #      - apk add gcc
 #      - apk add lua5.1-filesystem
