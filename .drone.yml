@@ -1,18 +1,12 @@
 pipeline:
   lint:
-    image: akorn/luarocks:${TAG}
+    image: pirogoeth/alpine-lua:${TAG}
     commands:
-      - apk update
-      - apk add unzip
-      - apk add build-base
-#      - apk add lua5.1-dev
-#      - apk add gcc
-#      - apk add lua5.1-filesystem
       - luarocks install luacheck
       - luarocks install busted
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-    image: akorn/luarocks:${TAG}
+    image: pirogoeth/alpine-lua:${TAG}
     commands:
 #      - luarocks install busted
       - busted -o TAP .
@@ -21,8 +15,5 @@ pipeline:
  
 matrix:
   TAG:
-    - lua5.1-alpine
-    - lua5.2-alpine
-    - lua5.3-alpine
-    - luajit2.0-alpine
-    - luajit2.1-alpine
+    - 5.1
+    - 5.2
