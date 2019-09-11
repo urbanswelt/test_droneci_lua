@@ -2,7 +2,7 @@ pipeline:
   lint:
     image: pirogoeth/alpine-lua:${TAG}
     commands:
-      - apk update
+      - apk update && apk upgrade
       - luarocks install luacheck
       - luarocks install busted
       - luacheck --std max+busted hello.lua hello_spec.lua
