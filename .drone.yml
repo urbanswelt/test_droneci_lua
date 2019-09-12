@@ -15,4 +15,4 @@ pipeline:
  
 matrix:
   TAG:
-    - 5.1
+    - lua5.1
