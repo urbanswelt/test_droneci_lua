@@ -2,7 +2,6 @@ pipeline:
   lint:
     image: abaez/luarocks:${TAG}
     commands:
-      - apk update && apk upgrade
       - luarocks install luacheck
       - luarocks install busted
       - luacheck --std max+busted hello.lua hello_spec.lua
