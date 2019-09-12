@@ -1,13 +1,13 @@
 pipeline:
   lint:
-    image: pirogoeth/alpine-lua:${TAG}
+    image: abaez/luarocks:${TAG}
     commands:
       - apk update && apk upgrade
       - luarocks install luacheck
       - luarocks install busted
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-    image: pirogoeth/alpine-lua:${TAG}
+    image: abaez/luarocks:${TAG}
     commands:
 #      - luarocks install busted
       - busted -o TAP .
@@ -17,4 +17,3 @@ pipeline:
 matrix:
   TAG:
     - 5.1
-    - 5.2
