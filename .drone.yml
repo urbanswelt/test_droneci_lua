@@ -1,17 +1,13 @@
 pipeline:
   lint:
-    image: imolein/luarocks:${LUA_VERSION}
+    image: imolein/luarocks:5.1
     commands:
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-    image: imolein/luarocks:${LUA_VERSION}
+    image: imolein/luarocks:5.1
     commands:
       - luarocks install busted
       - busted -o TAP .
     when:
           status: success
- 
-matrix:
-  LUA_VERSION:
-    - 5.1
