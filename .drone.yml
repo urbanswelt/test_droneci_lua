@@ -1,8 +1,6 @@
 pipeline:
   lint:
     image: imolein/luarocks${LUA_VERSION}:latest
-  settings:
-    repo: octocat/hello-world
     username:
       from_secret: docker_username
     password:
@@ -12,8 +10,6 @@ pipeline:
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
     image: imolein/luarocks${LUA_VERSION}:latest
-  settings:
-    repo: octocat/hello-world
     username:
       from_secret: docker_username
     password:
