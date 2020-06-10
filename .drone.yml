@@ -1,18 +1,10 @@
 pipeline:
   lint:
-      username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
     image: imolein/luarocks${LUA_VERSION}:latest
     commands:
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-      username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
     image: imolein/luarocks${LUA_VERSION}:latest
     commands:
       - luarocks install busted
