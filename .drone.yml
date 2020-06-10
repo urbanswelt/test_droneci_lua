@@ -1,18 +1,19 @@
 pipeline:
   lint:
-    image: abaez/luarocks:${TAG}
+    image: imo/luarocks${LUA_VERSION}:latest
     commands:
       - luarocks install luacheck
-      - luarocks install busted
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-    image: abaez/luarocks:${TAG}
+    image: imo/luarocks${LUA_VERSION}:latest
     commands:
-#      - luarocks install busted
+      - luarocks install busted
       - busted -o TAP .
     when:
           status: success
  
 matrix:
-  TAG:
-    - lua5.1
+  LUA_VERSION:
+    - 5.1
+    - 5.2
+    - 5.3
