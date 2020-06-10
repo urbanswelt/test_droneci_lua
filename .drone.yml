@@ -1,5 +1,3 @@
-imolein/drone-luarocks
-
 pipeline:
   lint:
     image: imolein/drone-luarocks${LUA_VERSION}:latest
