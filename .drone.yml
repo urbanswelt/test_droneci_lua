@@ -1,11 +1,11 @@
 pipeline:
   lint:
-    image: imolein/luarocks:5.1
+    image: nickblah/luajit:2.0.5-luarocks-alpine
     commands:
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
-    image: imolein/luarocks:5.1
+    image: nickblah/luajit:2.0.5-luarocks-alpine
     commands:
       - luarocks install busted
       - busted -o TAP .
