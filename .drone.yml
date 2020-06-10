@@ -1,20 +1,22 @@
 pipeline:
   lint:
     image: imolein/luarocks${LUA_VERSION}:latest
-    environment:
-    USERNAME:
+  settings:
+    repo: octocat/hello-world
+    username:
       from_secret: docker_username
-    PASSWORD:
+    password:
       from_secret: docker_password
     commands:
       - luarocks install luacheck
       - luacheck --std max+busted hello.lua hello_spec.lua
   test:
     image: imolein/luarocks${LUA_VERSION}:latest
-    environment:
-    USERNAME:
+  settings:
+    repo: octocat/hello-world
+    username:
       from_secret: docker_username
-    PASSWORD:
+    password:
       from_secret: docker_password
     commands:
       - luarocks install busted
