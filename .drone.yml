@@ -8,6 +8,7 @@ pipeline:
   test:
     image: nickblah/luajit:2.0.5-luarocks-alpine
     commands:
+      - apk add --no-cache build-base
       - luarocks install busted
       - busted -o TAP .
     when:
